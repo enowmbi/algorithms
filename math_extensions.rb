@@ -10,9 +10,10 @@ class Integer
   end
 
   def prime?
-     2.upto(Math.sqrt(self))  do |num|
-        return false if self % num != 0
-     end
-     return true
-  end
+    return  true if self == 2
+    2.upto(Math.sqrt(self))  do |num|
+      return true if self % num != 0
+    end
+    return false
+  end 
 end
