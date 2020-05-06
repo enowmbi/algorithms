@@ -8,4 +8,11 @@ class Integer
     end
     return remainder.join('')
   end
+
+  def prime?
+     2.upto(Math.sqrt(self))  do |num|
+        return false if self % num != 0
+     end
+     return true
+  end
 end
