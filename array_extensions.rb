@@ -10,7 +10,13 @@ class Array
   end
 
   def min_value
-
+    min_val = 1000000
+    self.each do |item|
+      if min_val > item
+        min_val = item
+      end
+    end
+    return min_val
   end
 
 end
