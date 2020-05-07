@@ -67,4 +67,16 @@ class String
     return {max_char.to_sym => max_count}
   end
 
+  def first_recurring_character
+    char_hash = {}
+    self.each_char do |char|
+      if char_hash.has_key?(char)
+        return char
+      else
+        char_hash[char] = 1
+      end
+    end
+    return nil
+  end
+
 end
