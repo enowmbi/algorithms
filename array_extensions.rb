@@ -1,4 +1,5 @@
 class Array
+  # time complexity => O(n) ,space complexity => O(1), note => use for unsorted array. for sorted arrays, use last item for max and first item for min with O(1) return time - not considering the time for sorting because the array is already sorted.
   def max_value
     max_val = 0
     self.each do |item|
