@@ -6,7 +6,7 @@ class Integer
       remainder << number % 2
       number = number / 2
     end
-    return remainder.join('')
+    return remainder.reverse.join('')
   end
 
   def prime?
