@@ -16,4 +16,11 @@ class Integer
     end
     return false
   end 
+
+  def factorial
+    return 1 if self == 1 || self == 0
+    return 2 if self == 2
+    return self * (self - 1).factorial
+  end
+
 end
