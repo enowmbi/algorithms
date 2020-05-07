@@ -7,7 +7,7 @@ class String
     end
   end
 
-  def reverse_inplace!
+  def inplace_reversal!
     i =0
     j = self.length - 1
     while i < j
