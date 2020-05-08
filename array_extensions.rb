@@ -20,4 +20,16 @@ class Array
     return min_val
   end
 
+  def odd_occurences
+    hash = {}
+    self.each do |elem|
+      if hash.has_key?(elem)
+        hash[elem] +=1
+      else
+        hash[elem] = 1
+      end
+    end
+    return hash.select_by_value{|x| x.odd? }
+  end
+
 end
