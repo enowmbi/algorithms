@@ -32,4 +32,13 @@ class Array
     return hash.select_by_value{|x| x.odd? }
   end
 
+  def cyclic_rotation(number_of_rotations)
+    modified = self
+    1.upto(number_of_rotations) do 
+      last_element = modified.pop
+      modified = modified.unshift(last_element)
+    end
+    return modified
+  end
+
 end
