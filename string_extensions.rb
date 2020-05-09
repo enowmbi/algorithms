@@ -79,4 +79,8 @@ class String
     return nil
   end
 
+  def titleize
+    self.split(' ').collect {|word| word.capitalize}.join(" ")
+  end
+
 end
