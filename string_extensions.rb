@@ -56,32 +56,28 @@ class String
     return [max_char,max_count]
   end
 
-  def maximum_consecutive_sequence_of_characters
-    current_char = ''
-    previous_char = ''
+  def longest_consecutive_character
     max_char =''
-    max_count = 0
-    char_stats  ={}
+    max_length = 0
+    current_length = 0
+    previous_char = ''
+    longest_character_sequence = {}
 
     self.each_char do |char|
-      current_char = char
-      if previous_char == ''
-        char_stats = Hash.new
-        char_stats[char] = 1
-      elsif current_char == previous_char
-        char_stats[char] +=1
-        if max_count < char_stats[char] 
-          max_count = char_stats[char]
-          max_char = char
-        end
-      elsif current_char != previous_char
-        if !char_stats[char]
-          char_stats[char] =  1
-        end
+      if previous_char == char
+        current_length += 1
+      else
+        current_length = 1
       end
-      previous_char = current_char
+
+      if max_length < current_length 
+        max_length = current_length
+        max_char = char
+      end
+      previous_char = char
     end
-    return {max_char.to_sym => max_count}
+    longest_character_sequence[max_char] = max_length
+    return longest_character_sequence
   end
 
   def first_recurring_character
