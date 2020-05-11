@@ -27,7 +27,7 @@ class String
       self.each_char do |char|
         stack << char
       end
-      while !stack.empty?
+      until stack.empty?
         last = stack.pop
         reversed_string += last
       end
