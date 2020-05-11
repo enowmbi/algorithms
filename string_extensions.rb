@@ -20,6 +20,23 @@ class String
     return self
   end
 
+  def reverse_using_stack
+    if !self.empty?
+      reversed_string = ''
+      stack = []
+      self.each_char do |char|
+        stack << char
+      end
+      while !stack.empty?
+        last = stack.pop
+        reversed_string += last
+      end
+      return reversed_string
+    else
+      return nil
+    end
+  end
+
   def maximum_number_of_characters
     max_char =''
     max_count =0
