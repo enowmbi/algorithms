@@ -15,13 +15,41 @@ class Tree
 
   def breadth_first_search
     while (temp != nil)
-      temp = temp.
-     "this is bfs"
+      temp = temp.left
+      temp2 = temp2.right
+      "this is bfs"
+    end
   end
 
   def depth_first_search_preorder
-     "this is dfs-preorder"
+    "is is dfs-preorder"
   end
+
+  def depth_first_search_inorder
+    "is is dfs-inorder"
+  end
+
+  def depth_first_search_postorder
+    "is is dfs-postorder"
+  end
+
+  def is_binary_search_tree
+
+  end
+
+  def delete_note
+
+  end
+
+  def height_of_tree
+
+  end
+
+  def height_of_node(node)
+
+  end
+
+
 end
 
 
