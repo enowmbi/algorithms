@@ -13,23 +13,29 @@ class Tree
     @root = node
   end
 
-  def breadth_first_search
+  def breadth_first_traversal
+   temp = @root
+   queue = []
     while (temp != nil)
-      temp = temp.left
-      temp2 = temp2.right
-      "this is bfs"
+      queue << temp
+      left = temp.left if temp.left != nil
+      right = temp.right  if temp.right != nil
+      queue << left
+      queue << right
+      queue.shift
+      temp = queue.first
     end
   end
 
-  def depth_first_search_preorder
+  def depth_first_traversal_preorder
     "is is dfs-preorder"
   end
 
-  def depth_first_search_inorder
+  def depth_first_traversal_inorder
     "is is dfs-inorder"
   end
 
-  def depth_first_search_postorder
+  def depth_first_traversal_postorder
     "is is dfs-postorder"
   end
 
