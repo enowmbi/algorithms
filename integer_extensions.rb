@@ -10,11 +10,15 @@ class Integer
   end
 
   def prime?
-    return  true if self == 2
+    if self > 1
+    return  true if self == 2 || self == 3
     2.upto(Math.sqrt(self))  do |num|
-      return true if self % num != 0
+      return false if self % num == 0
     end
-    return false
+    return true
+    else
+      false
+    end
   end 
 
   def factorial
