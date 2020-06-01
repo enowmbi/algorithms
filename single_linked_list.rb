@@ -123,7 +123,8 @@ class SingleLinkedList
   end
 
   def print_node(node)
-    puts "Node with value: #{node.value} has next value of :#{node.next_node ? node.next_node.value : nil}"
+    " #{node.value} " if node != nil
+    #puts "Node with value: #{node.value} has next value of :#{node.next_node ? node.next_node.value : nil}"
   end
 
   alias :first :head
