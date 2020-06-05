@@ -28,7 +28,7 @@ class LinkedList
     end
   end
 
-  def to_s
+  def print_forward
     current = @head
     while(current != nil)
       print "#{current.value} -> "
@@ -36,9 +36,21 @@ class LinkedList
     end
   end
 
+  def reverse_print(head = @head)
+     current = head
+     if(current == nil)
+       return  current
+     else
+       reverse_print(current.next_node)
+       print "#{current.value} -> "
+     end
+  end
+
   #TODO reverse_print, insert_at position,remove_at,delete_at,reverse_list, add tail and keep track
 
   alias :size :length
   alias :count :length
+  alias :to_s :print_forward
+  alias :print_backward :reverse_print
 
 end
