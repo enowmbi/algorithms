@@ -1,7 +1,28 @@
 class String
   def palindrome?
+    #This method takes advantage of Ruby's built-in reverse method on strings
     if self && !self.empty? && self.length > 1
       return self.reverse == self ? true : false
+    else
+      return false
+    end
+  end
+
+
+  def is_palindrome?
+    #this method uses two pointers and has a very low footprint on memory and time
+    if self && !self.empty? && self.length >= 1
+      start_index = 0
+      end_index = self.length - 1
+      while(start_index < end_index)
+        if self[start_index] != self[end_index]
+          return false
+        else
+          start_index += 1
+          end_index -= 1
+        end
+      end
+      return true
     else
       return false
     end
