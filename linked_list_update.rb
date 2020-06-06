@@ -91,7 +91,19 @@ class LinkedList
    return middle_point
  end
 
- #TODO get_midpoint,merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
+ def pop
+   current = @head
+   previous = nil
+   while(current.next_node != nil)
+     previous = current
+     current = current.next_node
+   end
+   previous.next_node = nil
+   return current.value
+ end
+
+
+ #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
 
   alias :size :length
   alias :count :length
