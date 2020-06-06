@@ -46,11 +46,23 @@ class LinkedList
      end
   end
 
-  #TODO reverse_print, insert_at position,remove_at,delete_at,reverse_list, add tail and keep track
+def reverse!
+  current = @head
+  next_node = previous = nil
+  while(current != nil)
+    next_node = current.next_node
+    current.next_node = previous
+    previous = current
+    current = next_node
+  end
+  @head = previous
+end
+
+  #TODO get_midpoint,merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at,reverse_list, add tail and keep track
 
   alias :size :length
   alias :count :length
   alias :to_s :print_forward
   alias :print_backward :reverse_print
-
+  alias :flip! :reverse!
 end
