@@ -99,7 +99,15 @@ class LinkedList
      current = current.next_node
    end
    previous.next_node = nil
+   @length -= 1
    return current.value
+ end
+
+ def shift
+  current = @head
+  @head = current.next_node if current != nil
+  @length -= 1
+  return current.value
  end
 
 
