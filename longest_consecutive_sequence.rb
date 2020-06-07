@@ -5,22 +5,23 @@ def length_of_longest_consecutive_sequence(array)
 
   hash = {}
   array.each do |elem|
-    hash[elem] = elem
+    hash[elem] = elem   #all operations here take place O(n) since n-sized array x 1 = n
   end
 
   longest_length = 0
 
   array.each do |elem|
     current_length = 1
-    while(hash.include?(elem.next))
-      current_length += 1
-      elem = elem.next
-    end
+    if(!hash.include?(elem.pred)) #skip over loop because there is a smaller number to search for
+      while(hash.include?(elem.next)) #check if the elem.next exists
+        current_length += 1
+        elem = elem.next
+      end
 
-    if longest_length < current_length
-      longest_length = current_length
+      if longest_length < current_length
+        longest_length = current_length
+      end
     end
-
   end
   return longest_length
 end
