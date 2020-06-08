@@ -41,7 +41,7 @@ class Tree
       return head
     else
       inorder_traversal(head.left)
-      print head.value
+      print "#{head.value} -> "
       inorder_traversal(head.right)
     end
   end
