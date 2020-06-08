@@ -9,8 +9,13 @@ end
 
 class Tree 
   attr_reader :root
-  def initialize(node)
+  def initialize(node = nil)
     @root = node
+  end
+
+  def add_node(value)
+    #
+
   end
 
   def breadth_first_traversal
@@ -31,8 +36,14 @@ class Tree
     "is is dfs-preorder"
   end
 
-  def depth_first_traversal_inorder
-    "is is dfs-inorder"
+  def inorder_traversal(head)
+    if head == nil
+      return head
+    else
+      inorder_traversal(head.left)
+      print head.value
+      inorder_traversal(head.right)
+    end
   end
 
   def depth_first_traversal_postorder
