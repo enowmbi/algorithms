@@ -32,8 +32,14 @@ class Tree
     end
   end
 
-  def depth_first_traversal_preorder
-    "is is dfs-preorder"
+  def preorder_traversal(head)
+    if head == nil
+      return head
+    else
+      print "#{head.value} -> "
+      preorder_traversal(head.left)
+      preorder_traversal(head.right)
+    end
   end
 
   def inorder_traversal(head)
