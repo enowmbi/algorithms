@@ -52,8 +52,14 @@ class Tree
     end
   end
 
-  def depth_first_traversal_postorder
-    "is is dfs-postorder"
+  def postorder_traversal(head)
+    if head == nil
+      return head
+    else
+      postorder_traversal(head.left)
+      postorder_traversal(head.right)
+      print "#{head.value} -> "
+    end
   end
 
   def is_binary_search_tree
