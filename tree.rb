@@ -18,17 +18,17 @@ class Tree
 
   end
 
-  def breadth_first_traversal
-   temp = @root
-   queue = []
+  def breadth_first_traversal(head)
+    temp = head
+    queue = []
     while (temp != nil)
       queue << temp
-      left = temp.left if temp.left != nil
-      right = temp.right  if temp.right != nil
-      queue << left
-      queue << right
-      queue.shift
-      temp = queue.first
+      while(!queue.empty?)
+        elem = queue.shift
+        print "#{elem.value} -> "
+        queue << elem.left
+        queue << elem.right
+      end
     end
   end
 
@@ -78,6 +78,8 @@ class Tree
 
   end
 
+  #aliases
+  alias :level_order_traversal :breadth_first_traversal
 
 end
 
