@@ -13,4 +13,16 @@ class NaryTree
     @root = node
   end
 
+  def preorder_traversal(head = @root)
+    if(head == nil)
+      return head
+    else
+      print "#{head.value} -> "
+      head.children.each do |child|
+        preorder_traversal(child)
+      end
+      return nil
+    end
+  end
+
 end
