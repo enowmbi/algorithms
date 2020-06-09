@@ -18,7 +18,7 @@ class Tree
 
   end
 
-  def breadth_first_traversal(head)
+  def breadth_first_traversal(head = @root)
     temp = head
     queue = []
     while (temp != nil)
@@ -32,7 +32,7 @@ class Tree
     end
   end
 
-  def preorder_traversal(head)
+  def preorder_traversal(head= @root)
     if head == nil
       return head
     else
@@ -42,7 +42,7 @@ class Tree
     end
   end
 
-  def inorder_traversal(head)
+  def inorder_traversal(head = @root)
     if head == nil
       return head
     else
@@ -52,7 +52,7 @@ class Tree
     end
   end
 
-  def postorder_traversal(head)
+  def postorder_traversal(head = @root)
     if head == nil
       return head
     else
@@ -60,6 +60,19 @@ class Tree
       postorder_traversal(head.right)
       print "#{head.value} -> "
     end
+  end
+
+  def inverse_binary_tree(head = @root)
+    if head == nil
+      return head
+    else
+      temp = head.left
+      head.left = head.right
+      head.right = temp
+      inverse_binary_tree(head.left)
+      inverse_binary_tree(head.right)
+    end
+    return head
   end
 
   def is_binary_search_tree
