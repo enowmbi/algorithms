@@ -28,16 +28,16 @@ class LinkedList
     end
   end
 
-  def print_forward
-    current = @head
+  def print_forward(node = @head)
+    current = node
     while(current != nil)
       print "#{current.value} -> "
       current = current.next_node
     end
   end
 
-  def reverse_print(head = @head)
-    current = head
+  def reverse_print(node = @head)
+    current = node
     if(current == nil)
       return  current
     else
@@ -108,6 +108,12 @@ class LinkedList
   @head = current.next_node if current != nil
   @length -= 1
   return current.value
+ end
+
+ def palindrome?(head= @root)
+   list1 = print_forward(head)
+   list2 = print_backward(head)
+   return list1 == list2 ? true : false
  end
 
  #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
