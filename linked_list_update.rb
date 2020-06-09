@@ -46,8 +46,8 @@ class LinkedList
     end
   end
 
-  def reverse!
-    current = @head
+  def reverse!(node = @head)
+    current = node
     next_node = previous = nil
     while(current != nil)
       next_node = current.next_node
@@ -58,7 +58,7 @@ class LinkedList
     @head = previous
   end
 
-  def search(value)
+  def search(node = @head,value)
     current = @head
     results = {} #return node and position of node
     index = 0
@@ -75,10 +75,10 @@ class LinkedList
     return  results
   end
 
- def mid_point
+ def mid_point(node =@head)
    middle_point ={}
    mid = (@length - 1) / 2
-   current = @head
+   current = node
    index = 0
    while(current != nil)
      if (index == mid)
@@ -91,8 +91,8 @@ class LinkedList
    return middle_point
  end
 
- def pop
-   current = @head
+ def pop(node = @head)
+   current = node
    previous = nil
    while(current.next_node != nil)
      previous = current
@@ -103,13 +103,12 @@ class LinkedList
    return current.value
  end
 
- def shift
-  current = @head
+ def shift(node = @head)
+  current = node
   @head = current.next_node if current != nil
   @length -= 1
   return current.value
  end
-
 
  #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
 
