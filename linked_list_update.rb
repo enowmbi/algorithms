@@ -75,48 +75,68 @@ class LinkedList
     return  results
   end
 
- def mid_point(node =@head)
-   middle_point ={}
-   mid = (@length - 1) / 2
-   current = node
-   index = 0
-   while(current != nil)
-     if (index == mid)
-       middle_point[index] = current.value  
-       break
-     end
-     current = current.next_node
-     index += 1
-   end
-   return middle_point
- end
+  def mid_point(node =@head)
+    middle_point ={}
+    mid = (@length - 1) / 2
+    current = node
+    index = 0
+    while(current != nil)
+      if (index == mid)
+        middle_point[index] = current.value  
+        break
+      end
+      current = current.next_node
+      index += 1
+    end
+    return middle_point
+  end
 
- def pop(node = @head)
-   current = node
-   previous = nil
-   while(current.next_node != nil)
-     previous = current
-     current = current.next_node
-   end
-   previous.next_node = nil
-   @length -= 1
-   return current.value
- end
+  def pop(node = @head)
+    current = node
+    previous = nil
+    while(current.next_node != nil)
+      previous = current
+      current = current.next_node
+    end
+    previous.next_node = nil
+    @length -= 1
+    return current.value
+  end
 
- def shift(node = @head)
-  current = node
-  @head = current.next_node if current != nil
-  @length -= 1
-  return current.value
- end
+  def shift(node = @head)
+    current = node
+    @head = current.next_node if current != nil
+    @length -= 1
+    return current.value
+  end
 
- def palindrome?(head= @root)
-   list1 = print_forward(head)
-   list2 = print_backward(head)
-   return list1 == list2 ? true : false
- end
+  def palindrome?(node= @head)
+    list1 = print_forward(node)
+    list2 = print_backward(node)
+    return list1 == list2 ? true : false
+  end
 
- #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
+  def palindrome2?(node = @head)
+    #this method uses two pointers 
+    fast = slow = node
+    while(fast != nil && fast.next_node != nil)
+      fast = fast.next_node.next_node
+      slow = slow.next_node
+    end
+    slow = reverse!(slow)
+    fast = node
+    while(slow != nil)
+      if slow.value != fast.value
+        return false
+      else
+        slow = slow.next_node
+        fast = fast.next_node
+      end
+    end
+    return true
+  end
+
+  #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
 
   alias :size :length
   alias :count :length
