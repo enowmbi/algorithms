@@ -136,6 +136,26 @@ class LinkedList
     return true
   end
 
+  def odd_even_linked_list!(head = @head)
+    if head == nil
+      return head
+    end
+
+    even = head.next_node
+    even_head = even
+    odd = head
+    
+    while(even != nil && even.next_node != nil)
+      odd.next_node = even.next_node
+      odd = odd.next_node
+      even.next_node = odd.next_node
+      even = even.next_node
+    end
+     odd.next_node  = even_head
+
+    return head
+  end
+
   #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
 
   alias :size :length
