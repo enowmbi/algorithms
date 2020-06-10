@@ -91,6 +91,20 @@ class LinkedList
     return middle_point
   end
 
+  def middle_part(node = @head)
+    if node == nil
+      return node
+    end
+
+    fast_pointer = slow_pointer = node
+
+    while(fast_pointer != nil && fast_pointer.next_node != nil)
+      slow_pointer = slow_pointer.next_node
+      fast_pointer = fast_pointer.next_node.next_node
+    end
+    return slow_pointer 
+  end
+
   def pop(node = @head)
     current = node
     previous = nil
@@ -136,14 +150,14 @@ class LinkedList
     return true
   end
 
-  def odd_even_linked_list!(head = @head)
-    if head == nil
-      return head
+  def odd_even_linked_list!(node = @head)
+    if node == nil
+      return node
     end
 
-    even = head.next_node
+    even = node.next_node
     even_head = even
-    odd = head
+    odd = node
     
     while(even != nil && even.next_node != nil)
       odd.next_node = even.next_node
@@ -153,7 +167,7 @@ class LinkedList
     end
      odd.next_node  = even_head
 
-    return head
+    return node
   end
 
   #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
