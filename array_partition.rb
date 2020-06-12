@@ -1,10 +1,12 @@
 # @param {Integer[]} nums
 # @return {Integer}
 def array_pair_sum(nums)
+  count = 0
   nums = nums.sort
-  n = nums.length / 2
-
-  partitions = nums.each_slice(n).to_a #each_slice(n) returns an array of array of n size -- to_a
-
-  return(partitions.first.min + partitions.last.min)
+  nums.each_with_index do |elem, index|
+    if index % 2 == 0
+      count += nums[index] 
+    end
+  end
+  return count 
 end
