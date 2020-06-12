@@ -170,9 +170,9 @@ class LinkedList
     return node
   end
 
-  def merge(l1 = self,l2)
-    temp_node = LinkedList.new(Node.new(nil))
-    current_node = temp_node.head
+  def merge(l1 = self.head,l2)
+    temp_node = LinkedList.new(Node.new(0))
+    current_node = temp_node
 
     while l1 != nil && l2 != nil
       if l1.value < l2.value
@@ -184,6 +184,7 @@ class LinkedList
       end
       current_node = current_node.next_node
     end
+
      if l1 == nil
        current_node.next_node = l2
        l2 = l2.next_node
@@ -193,7 +194,7 @@ class LinkedList
        l1 = l1.next_node
      end
      
-     return temp_node
+     return current_node
   end
 
   #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
