@@ -9,7 +9,7 @@ end
 class LinkedList
   attr_reader :head, :length
 
-  def initialize(node)
+  def initialize(node = nil)
     @head = node
     @length = 1
   end
@@ -158,16 +158,42 @@ class LinkedList
     even = node.next_node
     even_head = even
     odd = node
-    
+
     while(even != nil && even.next_node != nil)
       odd.next_node = even.next_node
       odd = odd.next_node
       even.next_node = odd.next_node
       even = even.next_node
     end
-     odd.next_node  = even_head
+    odd.next_node  = even_head
 
     return node
+  end
+
+  def merge(l1 = self,l2)
+    temp_node = LinkedList.new(Node.new(nil))
+    current_node = temp_node.head
+
+    while l1 != nil && l2 != nil
+      if l1.value < l2.value
+        current_node.next_node = l1
+        l1 = l1.next_node
+      else
+        current_node.next_node = l2
+        l2 = l2.next_node
+      end
+      current_node = current_node.next_node
+    end
+     if l1 == nil
+       current_node.next_node = l2
+       l2 = l2.next_node
+     end
+     if l2 == nil
+       current_node.next_node = l1
+       l1 = l1.next_node
+     end
+     
+     return temp_node
   end
 
   #TODO merge_point(other_linked_list),add_another(another_list),insert_at position,remove_at,delete_at, add tail and keep track
