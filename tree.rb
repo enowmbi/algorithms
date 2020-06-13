@@ -19,16 +19,14 @@ class Tree
   end
 
   def breadth_first_traversal(head = @root)
-    temp = head
+    return head  if head == nil
     queue = []
-    while (temp != nil)
-      queue << temp
-      while(!queue.empty?)
-        elem = queue.shift
-        print "#{elem.value} -> "
-        queue << elem.left
-        queue << elem.right
-      end
+    queue << head
+    while(!queue.empty?)
+      current = queue.shift
+      print "#{current.value} -> " 
+      queue << current.left if current.left != nil
+      queue << current.right if current.right != nil 
     end
   end
 
