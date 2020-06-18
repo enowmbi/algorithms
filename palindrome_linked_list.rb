@@ -90,7 +90,8 @@ def reverse!(node)
     current = next_node
   end
 
-  return previous_node
+  @head = previous_node
+  return @head
 
 end
 
