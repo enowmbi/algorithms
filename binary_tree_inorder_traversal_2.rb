@@ -1,6 +1,6 @@
 def inorder_traversal(root)
   #left,node,right   => we'll use the iterative technique
-  return root if root == nil
+  return [] if root == nil
   stack_of_nodes = []
   results =[]
 
