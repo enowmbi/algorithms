@@ -14,8 +14,7 @@ def odd_even_linked_list(head = @head)
     even = even.next_node
   end
 
-  odd.next_node = even
-  
+  odd.next_node = even_head  
   return head
 end
 
