@@ -10,7 +10,6 @@ def length_of_longest_substring(s)
   while(b_pointer < s.length)
     if !char_hash.has_key?(s[b_pointer])
       char_hash[s[b_pointer]] = 1
-      current_substring_length += 1
       b_pointer += 1
       if char_hash.length > longest_substring_length
         longest_substring_length = char_hash.length
