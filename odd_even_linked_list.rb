@@ -1,20 +1,19 @@
-def odd_even_linked_list(head = @head)
-  if head == nil
-    return head
-  end
+def odd_even_linked_list(head)
+  return head if head == nil
 
-  even = even_head = head.next_node
-  odd = head
-  #1->2->3->4->5->nil
-  #1->3->5->2->4->nil
-  while(even != nil && even.next_node != nil)
-    odd.next_node = even.next_node
-    odd = odd.next_node
-    even.next_node = odd.next_node
-    even = even.next_node
-  end
+  odd_pointer = head
+  even_pointer = head.next
+  even_head = ListNode.new()
+  even_head = even_pointer
 
-  odd.next_node = even_head  
+  while(odd_pointer.next != nil && even_pointer.next != nil)
+    odd_pointer.next = even_pointer.next
+    even_pointer.next = even_pointer.next.next
+    odd_pointer = odd_pointer.next
+    even_pointer = even_pointer.next
+  end
+  odd_pointer.next = even_head.next
+
   return head
 end
 
