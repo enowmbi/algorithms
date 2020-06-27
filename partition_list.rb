@@ -1,23 +1,41 @@
-def partition(head,value)
-  before_head = Node.new(0)
-  before = before_head
-  after_head = Node.new(0)
-  after = after_head
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @param {Integer} x
+# @return {ListNode}
+def partition(head, x)
+  return head if head == nil
+
+  less_than_list = ListNode.new()    
+  greater_than_list = ListNode.new()
+
+  pointer_less_than = less_than_list 
+  dummy_less_than_list = less_than_list
+  pointer_greater_than = greater_than_list
+  dummy_greater_than_list = greater_than_list
 
   while(head != nil)
-    if head.val >= 3
-      after.next = head
-      after = after.next
+    new_node = ListNode.new(head.val)
+    if(head.val < x)
+      pointer_less_than.next = new_node
+      pointer_less_than = pointer_less_than.next
+      less_than_list = less_than_list.next
     else
-      before.next = head
-      before = before.next
-    end
+      pointer_greater_than.next = new_node
+      pointer_greater_than = pointer_greater_than.next
+      greater_than_list = greater_than_list.next
+    end    
     head = head.next
   end
-  after.next = nil
-  before.next = after_head.next
-  return before_head.next
+
+  less_than_list.next = dummy_greater_than_list.next
+
+  return dummy_less_than_list.next
+
 end
-
-
-
