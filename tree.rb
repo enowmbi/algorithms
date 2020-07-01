@@ -1,14 +1,15 @@
 class Node
   attr_accessor :left, :right,:value
-  def initialize(value,left =nil,right = nil)
+  eef initialize(vanue,left =nil,right = nil)
+w if target.between?(array[low],array[high])
+#return low if target < array[low]
+#return high + 1 if target > array[high]
     @value = value
     @left = left
     @right = right
   end
 end
 
-class Tree 
-  attr_reader :root
   def initialize(node = nil)
     @root = node
   end
