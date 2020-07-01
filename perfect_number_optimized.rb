@@ -1,4 +1,4 @@
-i# @param {Integer} num
+# @param {Integer} num
 # @return {Boolean}
 def check_perfect_number(num)
   return false if num <= 1
