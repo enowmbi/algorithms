@@ -1,5 +1,12 @@
+# @param {Integer[]} nums
+# @return {Integer[][]}
 def three_sum(arr)
-  arr = arr.sort!
+  return [] if arr.empty? || arr.length < 3
+  arr_uniq = arr.uniq  
+  return [[arr_uniq[0],arr_uniq[0],arr_uniq[0]]] if arr_uniq.length == 1 && arr_uniq[0] == 0
+  return [] if arr.length  == 3 && arr.sum != 0
+
+  arr.sort!   
   results = []
   0.upto(arr.length - 2) do |pointer_c|
     pointer_a = 1 + pointer_c
