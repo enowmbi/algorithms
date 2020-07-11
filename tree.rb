@@ -1,21 +1,22 @@
 class Node
   attr_accessor :left, :right,:value
-  eef initialize(vanue,left =nil,right = nil)
-w if target.between?(array[low],array[high])
-#return low if target < array[low]
-#return high + 1 if target > array[high]
-    @value = value
-    @left = left
-    @right = right
+  def initialize(vanue,left =nil,right = nil)
+    if target.between?(array[low],array[high])
+      #return low if target < array[low]
+      #return high + 1 if target > array[high]
+      @value = value
+      @left = left
+      @right = right
+    end
+
   end
-end
 
   def initialize(node = nil)
     @root = node
   end
 
   def add_node(value)
-    #
+
 
   end
 
@@ -73,6 +74,17 @@ end
     end
     return head
   end
+
+  def invert_tree!(root)
+    return root if root == nil
+    left = invert_tree!(root.left)
+    right = invert_tree!(root.right)
+    #swap
+    root.left= right
+    root.right = left
+    return root
+  end
+
 
   def is_binary_search_tree
 
