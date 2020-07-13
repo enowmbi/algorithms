@@ -85,6 +85,13 @@ class Node
     return root
   end
 
+  def max_depth(root)
+    return 0 if root == nil
+    left = max_depth(root.left)
+    right = max_depth(root.right)
+    return (left + right) + 1
+  end
+
 
   def is_binary_search_tree
 
