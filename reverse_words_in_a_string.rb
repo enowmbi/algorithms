@@ -1,10 +1,10 @@
 # @param {String} s
 # @return {String}
 def reverse_words(s)
-  arr_string = s.split(/ /)
-  reversed_string =''
-  arr_string.each do |word|
-    reversed_string += "#{word.reverse} "
-  end
-  return  reversed_string.strip
+  sentence_words = s.strip.split(/ /)
+  new_sentence_words = []
+  sentence_words.each do |word|
+    new_sentence_words << word if word != ""
+  end    
+  return new_sentence_words.reverse.join(' ')     
 end
