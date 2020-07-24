@@ -1,5 +1,4 @@
-# Definition for a binary tree node.
-# class TreeNode
+vG# class TreeNode
 #     attr_accessor :val, :left, :right
 #     def initialize(val = 0, left = nil, right = nil)
 #         @val = val
@@ -26,3 +25,4 @@ def postorder_traversal(root)
   end
   return result
 end
+
