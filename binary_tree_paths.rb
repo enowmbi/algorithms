@@ -10,17 +10,25 @@
 # @param {TreeNode} root
 # @return {String[]}
 def binary_tree_paths(root)
-  @stack = []
-  @result = []
-  preorder_traversal(root)
-  @result
+  result = []
+  return result unless root
+  current_path = root.val.to_s
+  if(root.left == nil && root.right == nil)
+    result << current_path
+  end
+  depth_first_traversal(root.left,current_path,result) if root.left
+  depth_first_traversal(root.right,current_path,result) if root.right
+  return result
 end
 
-def preorder_traversal(current_node)
-  return unless current_node
-  @stack << current_node.val
-  preorder_traversal(current_node.left)
-  preorder_traversal(current_node.right)
-  @result << @stack.join("->") if !current_node.left && !current_node.right
-  @stack.pop
+def depth_first_traversal(node,current_path,result)
+  current_path += '->' + node.val.to_s
+  if(node.left == nil && node.right == nil)
+    result << current_path 
+    return
+  end
+  depth_first_traversal(node.left,current_path,result) if node.left
+  depth_first_traversal(node.right,current_path,result) if node.right
 end
+
+
