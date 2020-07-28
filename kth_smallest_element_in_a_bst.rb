@@ -11,7 +11,6 @@
 # @param {Integer} k
 # @return {Integer}
 def kth_smallest(root, k)
-  #inorder DFS will return sorted in increasing order 
   result = []
   return result unless root
   queue = [root]
