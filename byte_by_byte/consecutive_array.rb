@@ -5,16 +5,17 @@
 def max_consecutive_array_length(arr)
   max_length = 0
   return max_length if arr == nil || arr.empty?
-
   arr.each do |num|
-    current_length = 0
-    while(arr.include?(num.next))
-      current_length += 1
-      num = num.next
-      if current_length > max_length 
-        max_length = current_length
+    current_length = 1
+    if !arr.include?(num.pred)
+      while(arr.include?(num.next))
+        current_length += 1
+        num = num.next
+        if current_length > max_length 
+          max_length = current_length
+        end
       end
     end
   end
-  return max_length + 1
+  return max_length ==  0 ? 1 : max_length 
 end
